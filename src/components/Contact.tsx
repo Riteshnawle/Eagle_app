@@ -1,0 +1,262 @@
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    message: '',
+  })
+
+  const [submitted, setSubmitted] = useState(false)
+  const [errors, setErrors] = useState<Record<string, string>>({})
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {}
+
+    if (!formData.name.trim()) newErrors.name = 'Name is required'
+    if (!formData.email.trim()) newErrors.email = 'Email is required'
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'Invalid email format'
+    }
+    if (!formData.phone.trim()) newErrors.phone = 'Phone is required'
+    else if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, ''))) {
+      newErrors.phone = 'Invalid phone number'
+    }
+    if (!formData.message.trim()) newErrors.message = 'Message is required'
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
+    if (errors[name]) {
+      setErrors(prev => ({ ...prev, [name]: '' }))
+    }
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (validateForm()) {
+      setSubmitted(true)
+      setFormData({ name: '', email: '', phone: '', company: '', message: '' })
+      setTimeout(() => setSubmitted(false), 5000)
+    }
+  }
+
+  return (
+    <section id="contact" className="py-20 bg-light">
+      <div className="section-container">
+        <motion.div
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-dark mb-4">
+            Get in <span className="text-primary">Touch</span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Have questions? We'd love to hear from you. Send us a message and we'll respond
+            as soon as possible.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-12">
+          {/* Contact Information */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-2xl font-bold text-dark mb-8">Contact Information</h3>
+
+            <div className="space-y-6 mb-8">
+              <div className="flex gap-4">
+                <div className="text-3xl text-primary">📍</div>
+                <div>
+                  <p className="font-semibold text-dark">Address</p>
+                  <p className="text-gray-600">
+                    Flat No:Gut no 60, Floor No:Plot no 2, Building Name:J JTower, Block Sector:Chh Sambhajinagar, Road:Near Bajaj Hospital, Chh Sambhajinagar, pin:-431001<br />
+                    Maharashtra, India
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="text-3xl text-primary">📞</div>
+                <div>
+                  <p className="font-semibold text-dark">Phone</p>
+                  <p className="text-gray-600">
+                    +91 8830087156<br />
+                    +91 9623200898
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="text-3xl text-primary">✉️</div>
+                <div>
+                  <p className="font-semibold text-dark">Email</p>
+                  <p className="text-gray-600">
+                    hr@eaglehitech.com<br />
+                    hr.admin@eaglehitech.com<br />
+                    suresh@eaglehitech.com
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="text-3xl text-primary">🕒</div>
+                <div>
+                  <p className="font-semibold text-dark">Business Hours</p>
+                  <p className="text-gray-600">
+                    Monday - Friday: 9:00 AM - 6:00 PM<br />
+                    Saturday: 10:00 AM - 4:00 PM
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Google Map */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="mt-8"
+            >
+              <h4 className="text-xl font-bold text-dark mb-4">Our Location</h4>
+              <div className="rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 h-80 md:h-96">
+                <iframe
+                  height="100%"
+                  style={{ border: 0, width: '100%' }}
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.193470057346!2d75.32797!3d19.8776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd9261906f3a945:0x12345678!2sJJ%20Tower%20Chh%20Sambhajinagar!5e0!3m2!1sen!2sin!4v1711270800000"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Our Location"
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+
+              {/* Get Directions Button */}
+              <a
+                href="https://maps.app.goo.gl/gCuGDySziaoVB1w18?g_st=aw"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-6 px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+              >
+                🗺️ Get Directions
+              </a>
+            </motion.div>
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-lg">
+              {submitted && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="bg-green-50 text-green-700 p-4 rounded-lg border border-green-200"
+                >
+                  ✓ Thank you! We'll be in touch soon.
+                </motion.div>
+              )}
+
+              <div>
+                <label className="block text-dark font-semibold mb-2">Name *</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${
+                    errors.name ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  placeholder="Your Name"
+                />
+                {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
+              </div>
+
+              <div>
+                <label className="block text-dark font-semibold mb-2">Email *</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${
+                    errors.email ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  placeholder="your@email.com"
+                />
+                {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email}</p>}
+              </div>
+
+              <div>
+                <label className="block text-dark font-semibold mb-2">Phone *</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${
+                    errors.phone ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  placeholder="+91 (XXX) XXXX-XXXX"
+                />
+                {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone}</p>}
+              </div>
+
+              <div>
+                <label className="block text-dark font-semibold mb-2">Company</label>
+                <input
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  placeholder="Your Company Name"
+                />
+              </div>
+
+              <div>
+                <label className="block text-dark font-semibold mb-2">Message *</label>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={5}
+                  className={`w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary ${
+                    errors.message ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  placeholder="Tell us about your requirements..."
+                ></textarea>
+                {errors.message && <p className="text-red-600 text-sm mt-1">{errors.message}</p>}
+              </div>
+
+              <button type="submit" className="btn-primary w-full">
+                Send Message
+              </button>
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Contact
