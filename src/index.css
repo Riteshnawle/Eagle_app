@@ -13,7 +13,23 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
+  background: #f7f7f7;
+  color: #111;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #111;
+  line-height: 1.2;
+}
+
+p {
+  color: #333;
 }
 
 @layer components {
@@ -22,10 +38,22 @@ body {
   }
 
   .btn-primary {
-    @apply px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-red-700 transition-colors duration-300;
+    @apply px-6 py-3 bg-primary text-white font-semibold rounded-xl shadow-lg hover:bg-red-700 transition-all duration-300;
   }
 
   .btn-secondary {
-    @apply px-6 py-3 border-2 border-primary text-primary font-semibold rounded-lg hover:bg-primary hover:text-white transition-colors duration-300;
+    @apply px-6 py-3 border-2 border-primary text-primary font-semibold rounded-xl hover:bg-primary hover:text-white transition-all duration-300;
+  }
+
+  .card-surface {
+    @apply bg-white rounded-2xl shadow-lg border border-black/5 p-6 hover:shadow-2xl transition-all duration-300;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-dark mb-4 tracking-tight;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-gray-600 max-w-3xl mx-auto;
   }
 }

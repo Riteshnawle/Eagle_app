@@ -1,38 +1,44 @@
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
 const Services = () => {
   const services = [
     {
-      icon: '👷',
-      title: 'Skilled Workforce',
-      description: 'Technicians, engineers, and specialists with verified certifications and experience.',
+      icon: "👷",
+      title: "Industrial Manpower Supply",
+      description:
+        "Skilled, semi-skilled, and unskilled workforce tailored to your industrial needs across India.",
     },
     {
-      icon: '🔧',
-      title: 'Semi-Skilled Workforce',
-      description: 'Trained professionals ready for specialized industrial and technical roles.',
+      icon: "🏢",
+      title: "Facility Management",
+      description:
+        "Comprehensive facility management services ensuring smooth operations and maintenance.",
     },
     {
-      icon: '📦',
-      title: 'Unskilled Workforce',
-      description: 'General labor available for various industrial and manufacturing operations.',
+      icon: "🔧",
+      title: "Fabrication & Assembly",
+      description:
+        "Expert fabrication and assembly services with precision and quality assurance.",
     },
     {
-      icon: '⚙️',
-      title: 'Industrial Support',
-      description: 'Complete industrial solutions including equipment support and maintenance.',
+      icon: "🛡️",
+      title: "Security Services",
+      description:
+        "Professional security personnel and services for industrial site protection.",
     },
     {
-      icon: '👥',
-      title: 'Workforce Management',
-      description: 'End-to-end workforce management including recruitment, training, and compliance.',
+      icon: "🧹",
+      title: "Housekeeping Services",
+      description:
+        "Efficient housekeeping and cleaning services maintaining hygiene standards.",
     },
     {
-      icon: '📊',
-      title: 'Staffing Solutions',
-      description: 'Customized staffing solutions tailored to your specific business requirements.',
+      icon: "📋",
+      title: "Manpower Consultancy",
+      description:
+        "Strategic manpower planning and consultancy for workforce optimization.",
     },
-  ]
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -43,7 +49,7 @@ const Services = () => {
         delayChildren: 0.2,
       },
     },
-  }
+  };
 
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
@@ -52,7 +58,7 @@ const Services = () => {
       y: 0,
       transition: { duration: 0.6 },
     },
-  }
+  };
 
   return (
     <section id="services" className="py-20 bg-gray-50">
@@ -68,7 +74,8 @@ const Services = () => {
             Our <span className="text-primary">Services</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Comprehensive workforce and industrial solutions designed to meet your business needs
+            Comprehensive workforce and industrial solutions designed to meet
+            your business needs
           </p>
         </motion.div>
 
@@ -77,24 +84,28 @@ const Services = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {services.map((service, idx) => (
             <motion.div
               key={idx}
               variants={cardVariants}
-              whileHover={{ y: -10 }}
-              className="bg-white rounded-lg shadow-lg p-8 border-t-4 border-primary hover:shadow-xl transition-shadow duration-300"
+              whileHover={{ y: -10, scale: 1.05 }}
+              className="card-surface border-t-4 border-primary cursor-pointer"
             >
               <div className="text-5xl mb-4">{service.icon}</div>
-              <h3 className="text-2xl font-bold text-dark mb-3">{service.title}</h3>
-              <p className="text-gray-600">{service.description}</p>
+              <h3 className="text-xl font-bold text-dark mb-3">
+                {service.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;

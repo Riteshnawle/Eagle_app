@@ -1,23 +1,26 @@
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion";
 
 const About = () => {
   const values = [
     {
-      icon: '🔒',
-      title: 'Trust',
-      description: 'Building lasting relationships based on integrity and transparency',
+      icon: "🔒",
+      title: "Trust",
+      description:
+        "Building lasting relationships based on integrity and transparency",
     },
     {
-      icon: '✓',
-      title: 'Honesty',
-      description: 'Committed to truthful practices and ethical business standards',
+      icon: "✓",
+      title: "Honesty",
+      description:
+        "Committed to truthful practices and ethical business standards",
     },
     {
-      icon: '💪',
-      title: 'Determination',
-      description: 'Dedicated to excellence and continuous improvement in all endeavors',
+      icon: "💪",
+      title: "Determination",
+      description:
+        "Dedicated to excellence and continuous improvement in all endeavors",
     },
-  ]
+  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -28,7 +31,7 @@ const About = () => {
         delayChildren: 0.3,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -37,7 +40,7 @@ const About = () => {
       y: 0,
       transition: { duration: 0.6 },
     },
-  }
+  };
 
   return (
     <section id="about" className="py-20 bg-light">
@@ -49,12 +52,13 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-dark mb-4">
+          <h2 className="section-title">
             About <span className="text-primary">ETIC</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Eaglehi-Tech Industrial Corporate Pvt. Ltd is a leading manpower and industrial solutions provider
-            dedicated to connecting businesses with skilled talent and comprehensive workforce management services.
+          <p className="section-subtitle">
+            Eaglehi-Tech Industrial Corporate Pvt. Ltd is a leading manpower and
+            industrial solutions provider dedicated to connecting businesses
+            with skilled talent and comprehensive workforce management services.
           </p>
         </motion.div>
 
@@ -64,30 +68,36 @@ const About = () => {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-white rounded-lg shadow-lg p-8 mb-16 border-l-4 border-primary"
+          className="card-surface mb-16 border-l-4 border-primary"
         >
           <h3 className="text-2xl font-bold text-dark mb-4">Company Details</h3>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <p className="text-gray-600 mb-2">
-                <span className="font-semibold text-dark">Company Name:</span> Eaglehi-Tech Industrial Corporate Pvt. Ltd
+                <span className="font-semibold text-dark">Company Name:</span>{" "}
+                Eaglehi-Tech Industrial Corporate Pvt. Ltd
               </p>
               <p className="text-gray-600 mb-2">
-                <span className="font-semibold text-dark">Location:</span> Chhatrapati Sambhajinagar, Maharashtra
+                <span className="font-semibold text-dark">Location:</span>{" "}
+                Chhatrapati Sambhajinagar, Maharashtra
               </p>
               <p className="text-gray-600">
-                <span className="font-semibold text-dark">Specialization:</span> Manpower Supply & Industrial Solutions
+                <span className="font-semibold text-dark">Specialization:</span>{" "}
+                Manpower Supply & Industrial Solutions
               </p>
             </div>
             <div>
               <p className="text-gray-600 mb-2">
-                <span className="font-semibold text-dark">Services:</span> Skilled, Semi-skilled, and Unskilled Workforce
+                <span className="font-semibold text-dark">Services:</span>{" "}
+                Skilled, Semi-skilled, and Unskilled Workforce
               </p>
               <p className="text-gray-600 mb-2">
-                <span className="font-semibold text-dark">Compliance:</span> PF, ESIC, Legal Labour Compliance
+                <span className="font-semibold text-dark">Compliance:</span> PF,
+                ESIC, Legal Labour Compliance
               </p>
               <p className="text-gray-600">
-                <span className="font-semibold text-dark">Workforce:</span> 5000+ Active Professionals
+                <span className="font-semibold text-dark">Workforce:</span>{" "}
+                5000+ Active Professionals
               </p>
             </div>
           </div>
@@ -116,10 +126,12 @@ const About = () => {
               <motion.div
                 key={idx}
                 variants={itemVariants}
-                className="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300"
+                className="card-surface text-center"
               >
                 <div className="text-5xl mb-4">{value.icon}</div>
-                <h4 className="text-2xl font-bold text-dark mb-3">{value.title}</h4>
+                <h4 className="text-2xl font-bold text-dark mb-3">
+                  {value.title}
+                </h4>
                 <p className="text-gray-600">{value.description}</p>
               </motion.div>
             ))}
@@ -127,7 +139,7 @@ const About = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;
