@@ -199,11 +199,11 @@ const Contact = () => {
                 <div>
                   <p className="font-semibold text-dark">Email</p>
                   <p className="text-gray-600">
-                    hr@eaglehitech.com
+                    hr@eaglehitec.com
                     <br />
-                    hr.admin@eaglehitech.com
+                    hr.admin@eaglehitec.com
                     <br />
-                    suresh@eaglehitech.com
+                    suresh@eaglehitec.com
                   </p>
                 </div>
               </div>
