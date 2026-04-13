@@ -201,7 +201,7 @@ const Contact = () => {
                   <p className="text-gray-600">
                     hr@eaglehitec.com
                     <br />
-                    hr.admin@eaglehitec.com
+                    info@eaglehitec.com
                     <br />
                     suresh@eaglehitec.com
                   </p>
@@ -233,7 +233,7 @@ const Contact = () => {
                 <iframe
                   height="100%"
                   style={{ border: 0, width: "100%" }}
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.193470057346!2d75.32797!3d19.8776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd9261906f3a945:0x12345678!2sJJ%20Tower%20Chh%20Sambhajinagar!5e0!3m2!1sen!2sin!4v1711270800000"
+                  src="https://www.google.com/maps?q=19.853138983984387,75.31610755463795&z=15&output=embed"
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -244,7 +244,7 @@ const Contact = () => {
 
               {/* Get Directions Button */}
               <a
-                href="https://maps.app.goo.gl/gCuGDySziaoVB1w18?g_st=aw"
+                href="https://www.google.com/maps/search/?api=1&query=JJ+Tower+Beed+Bypass+Opp+Kamalnayan+Bajaj+Hospital+MIDC+Chhatrapati+Sambhajinagar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-6 px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105"
