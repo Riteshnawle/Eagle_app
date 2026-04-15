@@ -8,12 +8,12 @@ const Hero = () => {
     {
       image:
         "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop",
-      alt: "Industrial workers at factory",
+      alt: "Industrial professionals at factory",
     },
     {
       image:
         "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1600&h=900&fit=crop",
-      alt: "Industrial workforce",
+      alt: "Industrial professionals",
     },
     {
       image:
@@ -86,7 +86,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg sm:text-xl text-gray-200 mb-8 leading-relaxed font-light"
         >
-          10+ Years Experience | 2000+ Workforce Supplied | ISO Certified
+          10+ Years Experience | 2000+ professionals Supplied | ISO Certified
           Company
         </motion.p>
 

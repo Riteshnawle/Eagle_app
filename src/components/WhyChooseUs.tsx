@@ -10,15 +10,15 @@ const WhyChooseUs = () => {
     },
     {
       icon: "👥",
-      title: "2000+ Workforce Supplied",
+      title: "2000+ Professionals Supplied",
       description:
-        "Successfully deployed thousands of skilled workers across various industrial sectors.",
+        "Successfully deployed thousands of skilled professionals across various industrial sectors.",
     },
     {
       icon: "⭐",
-      title: "Skilled & Reliable Workers",
+      title: "Skilled & Reliable Professionals",
       description:
-        "Highly trained and dependable workforce ensuring quality and consistency in operations.",
+        "Highly trained and dependable professionals ensuring quality and consistency in operations.",
     },
     {
       icon: "🛡️",
@@ -30,7 +30,7 @@ const WhyChooseUs = () => {
       icon: "⚡",
       title: "Fast Deployment",
       description:
-        "Rapid mobilization of workforce to meet urgent project requirements and deadlines.",
+        "Rapid mobilization of professionals to meet urgent project requirements and deadlines.",
     },
   ];
 
