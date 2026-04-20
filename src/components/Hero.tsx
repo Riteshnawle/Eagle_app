@@ -76,7 +76,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight tracking-tight"
         >
-          Trusted Industrial Manpower Solutions Across India
+          Trusted Industrial Talent Solutions Across India
         </motion.h1>
 
         {/* Subheading */}

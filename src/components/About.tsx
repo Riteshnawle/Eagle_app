@@ -56,9 +56,10 @@ const About = () => {
             About <span className="text-primary">ETIC</span>
           </h2>
           <p className="section-subtitle">
-            Eaglehi-Tech Industrial Corporate Pvt. Ltd is a leading manpower and
-            industrial solutions provider dedicated to connecting businesses
-            with skilled talent and comprehensive workforce management services.
+            Eaglehi-Tech Industrial Corporate Pvt. Ltd is a leading Talent
+            Solutions and industrial solutions provider dedicated to connecting
+            businesses with skilled talent and comprehensive workforce
+            management services.
           </p>
         </motion.div>
 

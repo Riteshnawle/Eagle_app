@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import eagle from "../assets/logo.jpeg";
+import eagle from "../assets/logo_1.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

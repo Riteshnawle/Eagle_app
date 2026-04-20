@@ -4,9 +4,9 @@ const Services = () => {
   const services = [
     {
       icon: "👷",
-      title: "Industrial Manpower Supply",
+      title: "Industrial Talent Solutions Supply",
       description:
-        "Skilled, semi-skilled, and unskilled workforce tailored to your industrial needs across India.",
+        "Skilled, semi-skilled, and unskilled professionals tailored to your industrial needs across India.",
     },
     {
       icon: "🏢",
@@ -34,9 +34,9 @@ const Services = () => {
     },
     {
       icon: "📋",
-      title: "Manpower Consultancy",
+      title: "Talent Solutions Consultancy",
       description:
-        "Strategic manpower planning and consultancy for workforce optimization.",
+        "Strategic Talent Solutions planning and consultancy for workforce optimization.",
     },
   ];
 
@@ -74,8 +74,8 @@ const Services = () => {
             Our <span className="text-primary">Services</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Comprehensive workforce and industrial solutions designed to meet
-            your business needs
+            Comprehensive professionals and industrial solutions designed to
+            meet your business needs
           </p>
         </motion.div>
 

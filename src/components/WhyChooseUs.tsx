@@ -6,7 +6,7 @@ const WhyChooseUs = () => {
       icon: "📅",
       title: "10+ Years Experience",
       description:
-        "Over a decade of proven expertise in industrial manpower and facility management solutions.",
+        "Over a decade of proven expertise in industrial Talent Solutions and facility management solutions.",
     },
     {
       icon: "👥",
