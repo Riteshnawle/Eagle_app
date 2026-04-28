@@ -58,8 +58,8 @@ const About = () => {
           <p className="section-subtitle">
             Eaglehi-Tech Industrial Corporate Pvt. Ltd is a leading Talent
             Solutions and industrial solutions provider dedicated to connecting
-            businesses with skilled talent and comprehensive workforce
-            management services.
+            businesses with skilled talent and comprehensive talent
+            professionals management services.
           </p>
         </motion.div>
 
@@ -84,20 +84,20 @@ const About = () => {
               </p>
               <p className="text-gray-600">
                 <span className="font-semibold text-dark">Specialization:</span>{" "}
-                Manpower Supply & Industrial Solutions
+                talent professionals Supply & Industrial Solutions
               </p>
             </div>
             <div>
               <p className="text-gray-600 mb-2">
                 <span className="font-semibold text-dark">Services:</span>{" "}
-                Skilled, Semi-skilled, and Unskilled Workforce
+                Skilled, Semi-skilled, and Unskilled professionals
               </p>
               <p className="text-gray-600 mb-2">
                 <span className="font-semibold text-dark">Compliance:</span> PF,
                 ESIC, Legal Labour Compliance
               </p>
               <p className="text-gray-600">
-                <span className="font-semibold text-dark">Workforce:</span>{" "}
+                <span className="font-semibold text-dark">professionals:</span>{" "}
                 5000+ Active Professionals
               </p>
             </div>

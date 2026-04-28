@@ -1,28 +1,28 @@
-import { motion } from 'framer-motion'
-import ImageCarousel from './ImageCarousel'
+import { motion } from "framer-motion";
+import ImageCarousel from "./ImageCarousel";
 
 const ServiceGallery = () => {
   // Work/Project photos by service type
   const skilledWorkPhotos = [
-    'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop',
-  ]
+    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
+  ];
 
   const industrialWorkPhotos = [
-    'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop',
-  ]
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop",
+  ];
 
   const projectPhotos = [
-    'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop',
-  ]
+    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
+  ];
 
   return (
     <section id="service-gallery" className="py-20 bg-gray-50">
@@ -38,7 +38,8 @@ const ServiceGallery = () => {
             Our Services in <span className="text-primary">Action</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            See our skilled workforce and industrial solutions in real-world applications
+            See our skilled Professional and industrial solutions in real-world
+            applications
           </p>
         </motion.div>
 
@@ -57,7 +58,7 @@ const ServiceGallery = () => {
               height="h-72"
               showDots={true}
               showArrows={true}
-              title="Skilled Workforce"
+              title="Skilled Professionals"
               description="Expert technicians at work"
             />
           </motion.div>
@@ -107,7 +108,9 @@ const ServiceGallery = () => {
           viewport={{ once: true }}
           className="mt-20 bg-white rounded-lg shadow-lg p-12 border-l-4 border-primary"
         >
-          <h3 className="text-2xl font-bold text-dark mb-4">Our Track Record</h3>
+          <h3 className="text-2xl font-bold text-dark mb-4">
+            Our Track Record
+          </h3>
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="text-3xl font-bold text-primary mb-2">500+</div>
@@ -119,13 +122,15 @@ const ServiceGallery = () => {
             </div>
             <div>
               <div className="text-3xl font-bold text-primary mb-2">15k+</div>
-              <p className="text-gray-600">Workforce Deployed Annually</p>
+              <p className="text-gray-600">
+                Talent Professionals Deployed Annually
+              </p>
             </div>
           </div>
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ServiceGallery
+export default ServiceGallery;

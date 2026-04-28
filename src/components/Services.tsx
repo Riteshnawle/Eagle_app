@@ -34,9 +34,9 @@ const Services = () => {
     },
     {
       icon: "📋",
-      title: "Talent Solutions Consultancy",
+      title: "Talent Solutions Advisory",
       description:
-        "Strategic Talent Solutions planning and consultancy for workforce optimization.",
+        "Strategic talent solutions planning and advisory services for organizational optimization.",
     },
   ];
 

@@ -101,7 +101,7 @@ const Hero = () => {
             href="#manpower"
             className="px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg transition-all duration-300 ease-in-out hover:shadow-lg hover:scale-105 active:scale-95 whitespace-nowrap"
           >
-            Get Manpower
+            Get professionals
           </a>
           <a
             href="#contact"
