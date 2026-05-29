@@ -30,6 +30,31 @@ const Clients = () => {
       logo: "🚗",
       color: "from-red-500 to-red-700",
     },
+    {
+      name: "Endurance Ltd.",
+      logo: "🛠️",
+      color: "from-cyan-500 to-blue-700",
+    },
+    {
+      name: "Lumax Pvt. Ltd.",
+      logo: "💡",
+      color: "from-yellow-400 to-orange-600",
+    },
+    {
+      name: "LGB Ltd.",
+      logo: "🔋",
+      color: "from-emerald-500 to-green-700",
+    },
+    {
+      name: "Mauli Casting Industries",
+      logo: "🏭",
+      color: "from-stone-500 to-stone-700",
+    },
+    {
+      name: "Belraise Pvt. Ltd.",
+      logo: "🏢",
+      color: "from-slate-500 to-slate-700",
+    },
   ];
 
   // Auto-rotate carousel
