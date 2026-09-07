@@ -77,13 +77,16 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <img
-                  src={logo}
-                  alt="Company Logo"
-                  className="w-10 h-10 object-contain"
-                />
-              </div>
+              <div
+                className="w-10 h-10 shrink-0 rounded-full bg-primary overflow-hidden"
+                style={{
+                  backgroundImage: `url(${logo})`,
+                  backgroundSize: "200%",
+                  backgroundPosition: "50% 34%",
+                }}
+                role="img"
+                aria-label="Company Logo"
+              />
               <div>
                 <div className="font-bold text-lg">Eagle Hitech</div>
                 <div className="text-xs text-gray-400">

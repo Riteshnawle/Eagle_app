@@ -66,15 +66,16 @@ const Header = () => {
           className="flex items-center group min-w-0"
         >
           <div className="flex items-center gap-2 min-w-0">
-            <div className="w-10 h-10 shrink-0 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">
-                <img
-                  src={eagle}
-                  alt="Company Logo"
-                  className="w-10 h-10 object-contain"
-                />
-              </span>
-            </div>
+            <div
+              className="w-10 h-10 shrink-0 rounded-full bg-primary overflow-hidden"
+              style={{
+                backgroundImage: `url(${eagle})`,
+                backgroundSize: "200%",
+                backgroundPosition: "50% 34%",
+              }}
+              role="img"
+              aria-label="Company Logo"
+            />
             <div className="min-w-0">
               <div className="font-bold text-dark text-sm sm:text-lg truncate">
                 Eagle Hitech
