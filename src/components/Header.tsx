@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import eagle from "../assets/eagle-icon.png";
 import ApplyModal from "./ApplyModal";
 
@@ -51,15 +51,21 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      className={`fixed w-full top-0 z-50 border-b transition-all duration-300 ${
         isSticky
-          ? "bg-white/95 backdrop-blur-md shadow-lg"
-          : "bg-white"
+          ? "bg-white/95 backdrop-blur-md shadow-lg border-gray-100"
+          : "bg-white border-transparent"
       }`}
     >
-      <nav className="section-container py-4 flex justify-between items-center">
+      <nav
+        className={`section-container flex justify-between items-center transition-all duration-300 ${
+          isSticky ? "py-3" : "py-5"
+        }`}
+      >
         {/* Logo */}
-        <motion.div
+        <motion.a
+          href="#hero"
+          aria-label="Eagle Hitech — back to top"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -82,7 +88,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.a>
 
         {/* Desktop Menu */}
         <div className="hidden lg:flex items-center gap-6">
@@ -112,13 +118,16 @@ const Header = () => {
               </motion.a>
             );
           })}
+
+          <div className="h-6 w-px bg-gray-200" aria-hidden="true" />
+
           <motion.button
             type="button"
             onClick={() => setIsApplyOpen(true)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.55 }}
-            className="btn-secondary text-sm"
+            className="nav-btn-secondary"
           >
             Apply Now
           </motion.button>
@@ -127,7 +136,7 @@ const Header = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="btn-primary text-sm"
+            className="nav-btn-primary"
           >
             Get in Touch
           </motion.a>
@@ -169,47 +178,56 @@ const Header = () => {
       </nav>
 
       {/* Mobile Menu */}
-      {isMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          className="lg:hidden bg-white border-t border-gray-200"
-        >
-          <div className="section-container py-4 flex flex-col gap-4">
-            {navItems.map((item, idx) => {
-              const isActive = activeSection === item.href.slice(1);
-              return (
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="lg:hidden overflow-hidden bg-white border-t border-gray-200"
+          >
+            <div className="section-container py-4 flex flex-col gap-1">
+              {navItems.map((item, idx) => {
+                const isActive = activeSection === item.href.slice(1);
+                return (
+                  <a
+                    key={idx}
+                    href={item.href}
+                    className={`rounded-lg px-2 py-3 transition-colors ${
+                      isActive
+                        ? "text-primary font-semibold bg-primary/5"
+                        : "text-dark font-medium hover:bg-gray-50 hover:text-primary"
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                );
+              })}
+              <div className="mt-2 flex flex-col gap-3 border-t border-gray-100 pt-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    setIsApplyOpen(true);
+                  }}
+                  className="btn-secondary text-center"
+                >
+                  Apply Now
+                </button>
                 <a
-                  key={idx}
-                  href={item.href}
-                  className={`transition-colors py-2 ${
-                    isActive
-                      ? "text-primary font-semibold"
-                      : "text-dark font-medium hover:text-primary"
-                  }`}
+                  href="#contact"
+                  className="btn-primary inline-block text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item.label}
+                  Get in Touch
                 </a>
-              );
-            })}
-            <button
-              type="button"
-              onClick={() => {
-                setIsMenuOpen(false);
-                setIsApplyOpen(true);
-              }}
-              className="btn-secondary text-center"
-            >
-              Apply Now
-            </button>
-            <a href="#contact" className="btn-primary inline-block text-center">
-              Get in Touch
-            </a>
-          </div>
-        </motion.div>
-      )}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <ApplyModal isOpen={isApplyOpen} onClose={() => setIsApplyOpen(false)} />
     </header>
