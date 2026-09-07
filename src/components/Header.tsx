@@ -5,15 +5,7 @@ import eagle from "../assets/logo_1.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsSticky(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [activeSection, setActiveSection] = useState("hero");
 
   const navItems = [
     { label: "Home", href: "#hero" },
@@ -24,6 +16,36 @@ const Header = () => {
     { label: "Compliance", href: "#compliance" },
     { label: "Contact", href: "#contact" },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = navItems.map((item) => item.href.slice(1));
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header
@@ -62,18 +84,25 @@ const Header = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
-          {navItems.map((item, idx) => (
-            <motion.a
-              key={idx}
-              href={item.href}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="text-dark font-medium hover:text-primary transition-colors duration-300 text-sm"
-            >
-              {item.label}
-            </motion.a>
-          ))}
+          {navItems.map((item, idx) => {
+            const isActive = activeSection === item.href.slice(1);
+            return (
+              <motion.a
+                key={idx}
+                href={item.href}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+                className={`transition-colors duration-300 text-sm ${
+                  isActive
+                    ? "text-primary font-semibold"
+                    : "text-dark font-medium hover:text-primary"
+                }`}
+              >
+                {item.label}
+              </motion.a>
+            );
+          })}
           <motion.a
             href="#contact"
             initial={{ opacity: 0 }}
@@ -119,16 +148,23 @@ const Header = () => {
           className="md:hidden bg-white border-t border-gray-200"
         >
           <div className="section-container py-4 flex flex-col gap-4">
-            {navItems.map((item, idx) => (
-              <a
-                key={idx}
-                href={item.href}
-                className="text-dark font-medium hover:text-primary transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item, idx) => {
+              const isActive = activeSection === item.href.slice(1);
+              return (
+                <a
+                  key={idx}
+                  href={item.href}
+                  className={`transition-colors py-2 ${
+                    isActive
+                      ? "text-primary font-semibold"
+                      : "text-dark font-medium hover:text-primary"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
             <a href="#contact" className="btn-primary inline-block text-center">
               Get in Touch
             </a>

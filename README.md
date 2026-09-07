@@ -179,6 +179,6 @@ Modify services list in `src/components/Services.tsx` to match your offerings.
 ## Support
 
 For inquiries or support:
-- Email: info@etic-industrial.com
-- Phone: +91 (XXX) XXXX-XXXX
+- Email: info@eaglehitec.com
+- Phone: +91 8830087156
 - Location: Chhatrapati Sambhajinagar, Maharashtra

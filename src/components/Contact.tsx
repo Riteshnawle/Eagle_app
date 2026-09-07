@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +11,8 @@ const Contact = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validateForm = () => {
@@ -36,12 +40,29 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
+    setSubmitError("");
+    if (!validateForm()) return;
+
+    try {
+      setIsSubmitting(true);
+      await addDoc(collection(db, "contactMessages"), {
+        name: formData.name.trim(),
+        phone: formData.phone.trim(),
+        message: formData.message.trim(),
+        createdAt: serverTimestamp(),
+      });
       setSubmitted(true);
       setFormData({ name: "", phone: "", message: "" });
       setTimeout(() => setSubmitted(false), 5000);
+    } catch (error) {
+      console.error("Failed to submit contact message:", error);
+      setSubmitError(
+        "Something went wrong sending your message. Please try again or call us directly.",
+      );
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -87,6 +108,16 @@ const Contact = () => {
                   className="bg-green-50 text-green-700 p-4 rounded-lg border border-green-200"
                 >
                   ✓ Thank you! We'll be in touch soon.
+                </motion.div>
+              )}
+
+              {submitError && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="bg-red-50 text-red-700 p-4 rounded-lg border border-red-200"
+                >
+                  {submitError}
                 </motion.div>
               )}
 
@@ -149,9 +180,10 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95"
+                disabled={isSubmitting}
+                className="w-full px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100"
               >
-                Send Message
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
             </form>
           </motion.div>

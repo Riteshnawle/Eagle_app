@@ -7,9 +7,11 @@ import Leadership from "./components/Leadership";
 import Services from "./components/Services";
 import ServiceGallery from "./components/ServiceGallery";
 import Clients from "./components/Clients";
+import Testimonials from "./components/Testimonials";
 import Compliance from "./components/Compliance";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import BackToTop from "./components/BackToTop";
 
 function App() {
   return (
@@ -23,9 +25,11 @@ function App() {
       <Services />
       <ServiceGallery />
       <Clients />
+      <Testimonials />
       <Compliance />
       <Contact />
       <Footer />
+      <BackToTop />
     </div>
   );
 }
