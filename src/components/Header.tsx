@@ -52,7 +52,9 @@ const Header = () => {
   return (
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isSticky ? "bg-white shadow-lg" : "bg-white"
+        isSticky
+          ? "bg-white/95 backdrop-blur-md shadow-lg"
+          : "bg-white"
       }`}
     >
       <nav className="section-container py-4 flex justify-between items-center">
@@ -85,7 +87,7 @@ const Header = () => {
         </motion.div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6">
           {navItems.map((item, idx) => {
             const isActive = activeSection === item.href.slice(1);
             return (
@@ -95,13 +97,20 @@ const Header = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className={`transition-colors duration-300 text-sm ${
+                className={`relative pb-1 transition-colors duration-300 text-sm ${
                   isActive
                     ? "text-primary font-semibold"
                     : "text-dark font-medium hover:text-primary"
                 }`}
               >
                 {item.label}
+                {isActive && (
+                  <motion.span
+                    layoutId="nav-underline"
+                    className="absolute left-0 right-0 -bottom-0.5 h-0.5 rounded-full bg-primary"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </motion.a>
             );
           })}
@@ -132,8 +141,9 @@ const Header = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden flex h-11 w-11 items-center justify-center"
+          className="lg:hidden flex h-11 w-11 items-center justify-center"
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isMenuOpen}
         >
           <svg
             className="w-6 h-6 text-dark"
@@ -141,12 +151,21 @@ const Header = () => {
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+            {isMenuOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
           </svg>
         </motion.button>
       </nav>
@@ -157,7 +176,7 @@ const Header = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="md:hidden bg-white border-t border-gray-200"
+          className="lg:hidden bg-white border-t border-gray-200"
         >
           <div className="section-container py-4 flex flex-col gap-4">
             {navItems.map((item, idx) => {
