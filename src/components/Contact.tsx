@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
+import { sendContactEmail } from "../lib/notifyEmail";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -53,6 +54,17 @@ const Contact = () => {
         message: formData.message.trim(),
         createdAt: serverTimestamp(),
       });
+
+      try {
+        await sendContactEmail({
+          name: formData.name.trim(),
+          phone: formData.phone.trim(),
+          message: formData.message.trim(),
+        });
+      } catch (emailError) {
+        console.error("Message saved but email notification failed:", emailError);
+      }
+
       setSubmitted(true);
       setFormData({ name: "", phone: "", message: "" });
       setTimeout(() => setSubmitted(false), 5000);

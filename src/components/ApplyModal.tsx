@@ -9,6 +9,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { db, storage } from "../firebase";
+import { sendApplicationEmail } from "../lib/notifyEmail";
 
 // TODO: replace with your actual open positions
 const positions = [
@@ -153,6 +154,19 @@ const ApplyModal = ({ isOpen, onClose }: ApplyModalProps) => {
         resumeName: resumeFile.name,
         appliedAt: serverTimestamp(),
       });
+
+      try {
+        await sendApplicationEmail({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim(),
+          position: formData.position,
+          message: formData.message.trim(),
+          resumeUrl,
+        });
+      } catch (emailError) {
+        console.error("Application saved but email notification failed:", emailError);
+      }
 
       setSubmitted(true);
       setFormData(initialFormData);
