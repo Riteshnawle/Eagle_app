@@ -37,10 +37,10 @@ const Header = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="flex items-center group"
+          className="flex items-center group min-w-0"
         >
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+          <div className="flex items-center gap-2 min-w-0">
+            <div className="w-10 h-10 shrink-0 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">
                 <img
                   src={eagle}
@@ -49,9 +49,11 @@ const Header = () => {
                 />
               </span>
             </div>
-            <div className="hidden sm:block">
-              <div className="font-bold text-dark text-lg">Eagle Hitech </div>
-              <div className="text-xs text-gray-600">
+            <div className="min-w-0">
+              <div className="font-bold text-dark text-sm sm:text-lg truncate">
+                Eagle Hitech
+              </div>
+              <div className="text-[10px] sm:text-xs text-gray-600 truncate">
                 Industrial Corporate Pvt. Ltd
               </div>
             </div>
