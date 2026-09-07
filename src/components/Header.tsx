@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import eagle from "../assets/logo_1.png";
+import ApplyModal from "./ApplyModal";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
+  const [isApplyOpen, setIsApplyOpen] = useState(false);
 
   const navItems = [
     { label: "Home", href: "#hero" },
@@ -14,7 +16,6 @@ const Header = () => {
     { label: "Services", href: "#services" },
     { label: "Clients", href: "#clients" },
     { label: "Compliance", href: "#compliance" },
-    { label: "Careers", href: "#careers" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -104,6 +105,16 @@ const Header = () => {
               </motion.a>
             );
           })}
+          <motion.button
+            type="button"
+            onClick={() => setIsApplyOpen(true)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="btn-secondary text-sm"
+          >
+            Apply Now
+          </motion.button>
           <motion.a
             href="#contact"
             initial={{ opacity: 0 }}
@@ -166,12 +177,24 @@ const Header = () => {
                 </a>
               );
             })}
+            <button
+              type="button"
+              onClick={() => {
+                setIsMenuOpen(false);
+                setIsApplyOpen(true);
+              }}
+              className="btn-secondary text-center"
+            >
+              Apply Now
+            </button>
             <a href="#contact" className="btn-primary inline-block text-center">
               Get in Touch
             </a>
           </div>
         </motion.div>
       )}
+
+      <ApplyModal isOpen={isApplyOpen} onClose={() => setIsApplyOpen(false)} />
     </header>
   );
 };

@@ -9,7 +9,6 @@ import ServiceGallery from "./components/ServiceGallery";
 import Clients from "./components/Clients";
 import Testimonials from "./components/Testimonials";
 import Compliance from "./components/Compliance";
-import Careers from "./components/Careers";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
@@ -28,7 +27,6 @@ function App() {
       <Clients />
       <Testimonials />
       <Compliance />
-      <Careers />
       <Contact />
       <Footer />
       <BackToTop />
