@@ -89,7 +89,8 @@ const Header = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2"
+          className="md:hidden flex h-11 w-11 items-center justify-center"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
           <svg
             className="w-6 h-6 text-dark"
@@ -120,7 +121,7 @@ const Header = () => {
               <a
                 key={idx}
                 href={item.href}
-                className="text-dark font-medium hover:text-primary transition-colors"
+                className="text-dark font-medium hover:text-primary transition-colors py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

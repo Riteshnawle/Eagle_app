@@ -125,7 +125,7 @@ const ImageCarousel = ({
           <>
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm"
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-white/30 hover:bg-white/50 text-white transition-all duration-300 backdrop-blur-sm"
               aria-label="Previous slide"
             >
               <svg
@@ -145,7 +145,7 @@ const ImageCarousel = ({
 
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-white/30 hover:bg-white/50 text-white p-2 rounded-full transition-all duration-300 backdrop-blur-sm"
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-white/30 hover:bg-white/50 text-white transition-all duration-300 backdrop-blur-sm"
               aria-label="Next slide"
             >
               <svg
