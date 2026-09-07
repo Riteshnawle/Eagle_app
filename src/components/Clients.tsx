@@ -1,5 +1,17 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import {
+  Settings,
+  Wrench,
+  Building2,
+  Factory,
+  Car,
+  Hammer,
+  Lightbulb,
+  BatteryCharging,
+  Warehouse,
+  Building,
+} from "lucide-react";
 
 const Clients = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -7,52 +19,52 @@ const Clients = () => {
   const clients = [
     {
       name: "Dhoot Transmission",
-      logo: "⚙️",
+      logo: Settings,
       color: "from-blue-500 to-blue-700",
     },
     {
       name: "Trigon Technology",
-      logo: "🔧",
+      logo: Wrench,
       color: "from-purple-500 to-purple-700",
     },
     {
       name: "Belrise Engineering",
-      logo: "🏗️",
+      logo: Building2,
       color: "from-orange-500 to-orange-700",
     },
     {
       name: "Yashashree Press",
-      logo: "🏭",
+      logo: Factory,
       color: "from-gray-600 to-gray-800",
     },
     {
       name: "Dhoot Automotive",
-      logo: "🚗",
+      logo: Car,
       color: "from-red-500 to-red-700",
     },
     {
       name: "Endurance Ltd.",
-      logo: "🛠️",
+      logo: Hammer,
       color: "from-cyan-500 to-blue-700",
     },
     {
       name: "Lumax Pvt. Ltd.",
-      logo: "💡",
+      logo: Lightbulb,
       color: "from-yellow-400 to-orange-600",
     },
     {
       name: "LGB Ltd.",
-      logo: "🔋",
+      logo: BatteryCharging,
       color: "from-emerald-500 to-green-700",
     },
     {
       name: "Mauli Casting Industries",
-      logo: "🏭",
+      logo: Warehouse,
       color: "from-stone-500 to-stone-700",
     },
     {
       name: "Belraise Pvt. Ltd.",
-      logo: "🏢",
+      logo: Building,
       color: "from-slate-500 to-slate-700",
     },
   ];
@@ -122,7 +134,7 @@ const Clients = () => {
                   <div
                     className={`w-20 h-20 bg-gradient-to-br ${client.color} rounded-lg flex items-center justify-center mb-4 mx-auto grayscale group-hover:grayscale-0 transition-all duration-300 shadow-lg`}
                   >
-                    <span className="text-4xl">{client.logo}</span>
+                    <client.logo className="w-9 h-9 text-white" strokeWidth={1.75} />
                   </div>
                   <p className="text-sm font-semibold text-dark group-hover:text-primary transition-colors duration-300">
                     {client.name}
@@ -159,7 +171,7 @@ const Clients = () => {
                         <div
                           className={`w-24 h-24 bg-gradient-to-br ${client.color} rounded-lg flex items-center justify-center mb-4 mx-auto grayscale hover:grayscale-0 transition-all duration-300 shadow-lg`}
                         >
-                          <span className="text-5xl">{client.logo}</span>
+                          <client.logo className="w-11 h-11 text-white" strokeWidth={1.75} />
                         </div>
                         <p className="text-sm font-semibold text-dark">
                           {client.name}

@@ -1,33 +1,34 @@
 import { motion } from "framer-motion";
+import { Briefcase, HeartPulse, Award, Building2, BadgeCheck } from "lucide-react";
 
 const Compliance = () => {
   const certifications = [
     {
-      icon: "💼",
+      icon: Briefcase,
       title: "PF Registered",
       description:
         "Employees Provident Fund registered for employee financial security and retirement benefits",
     },
     {
-      icon: "🏥",
+      icon: HeartPulse,
       title: "ESIC Registered",
       description:
         "Employee State Insurance Corporation coverage for comprehensive health protection",
     },
     {
-      icon: "🏆",
+      icon: Award,
       title: "ISO 9001:2018 Certified",
       description:
         "International quality management system certification ensuring operational excellence",
     },
     {
-      icon: "🏢",
+      icon: Building2,
       title: "Private Limited Company",
       description:
         "CIN Registered | Legally established and governed commercial entity",
     },
     {
-      icon: "✅",
+      icon: BadgeCheck,
       title: "PAN Verified Business",
       description:
         "Permanent Account Number verified with full tax compliance and transparency",
@@ -102,8 +103,8 @@ const Compliance = () => {
 
               <div className="relative z-10">
                 {/* Icon */}
-                <div className="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {cert.icon}
+                <div className="w-14 h-14 mb-4 rounded-xl bg-red-600/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-red-600/20 transition-transform duration-300">
+                  <cert.icon className="w-7 h-7 text-red-400" strokeWidth={2} />
                 </div>
 
                 {/* Content */}

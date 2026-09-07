@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase";
 import { sendContactEmail } from "../lib/notifyEmail";
+import { MapPin, Phone, Mail, Clock, Navigation } from "lucide-react";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -213,7 +214,9 @@ const Contact = () => {
 
             <div className="space-y-6 mb-8">
               <div className="flex gap-4">
-                <div className="text-3xl text-primary">📍</div>
+                <div className="w-11 h-11 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-primary" strokeWidth={2} />
+                </div>
                 <div>
                   <p className="font-semibold text-dark">Address</p>
                   <p className="text-gray-600">
@@ -227,7 +230,9 @@ const Contact = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="text-3xl text-primary">📞</div>
+                <div className="w-11 h-11 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-primary" strokeWidth={2} />
+                </div>
                 <div>
                   <p className="font-semibold text-dark">Phone</p>
                   <p className="text-gray-600">
@@ -239,7 +244,9 @@ const Contact = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="text-3xl text-primary">✉️</div>
+                <div className="w-11 h-11 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-primary" strokeWidth={2} />
+                </div>
                 <div>
                   <p className="font-semibold text-dark">Email</p>
                   <p className="text-gray-600">
@@ -253,7 +260,9 @@ const Contact = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="text-3xl text-primary">🕒</div>
+                <div className="w-11 h-11 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Clock className="w-5 h-5 text-primary" strokeWidth={2} />
+                </div>
                 <div>
                   <p className="font-semibold text-dark">Business Hours</p>
                   <p className="text-gray-600">
@@ -291,9 +300,10 @@ const Contact = () => {
                 href="https://www.google.com/maps/search/?api=1&query=JJ+Tower+Beed+Bypass+Opp+Kamalnayan+Bajaj+Hospital+MIDC+Chhatrapati+Sambhajinagar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-6 px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+                className="inline-flex items-center gap-2 mt-6 px-8 py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105"
               >
-                🗺️ Get Directions
+                <Navigation className="w-4 h-4" strokeWidth={2} />
+                Get Directions
               </a>
             </motion.div>
           </motion.div>
