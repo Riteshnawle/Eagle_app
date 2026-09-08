@@ -1,6 +1,4 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import ImageCarousel from "./ImageCarousel";
 
 // Load all images using Vite's import.meta.url for proper asset bundling
 const item1 = new URL("../assets/item1.jpeg", import.meta.url).href;
@@ -21,7 +19,7 @@ const item15 = new URL("../assets/item15.jpeg", import.meta.url).href;
 const item16 = new URL("../assets/item16.jpeg", import.meta.url).href;
 
 const Gallery = () => {
-  // All team photos for carousel
+  // All team/work photos shown in the gallery grid
   const teamPhotos = [
     item1,
     item2,
@@ -62,11 +60,8 @@ const Gallery = () => {
   };
 
   return (
-    <section
-      id="gallery"
-      className="py-20 bg-gradient-to-b from-white to-gray-50"
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="gallery" className="py-20 bg-gray-50">
+      <div className="section-container">
         {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
@@ -75,33 +70,37 @@ const Gallery = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Our Work & <span className="text-blue-600">Team</span>
+          <h2 className="section-title">
+            Our Work & <span className="text-primary">Team</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="section-subtitle">
             Explore our industrial operations, dedicated team, and modern
             workspace facilities.
           </p>
         </motion.div>
 
-        {/* Carousel Section */}
+        {/* Photo Grid */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4"
         >
-          <div className="rounded-lg overflow-hidden shadow-2xl">
-            <ImageCarousel
-              images={teamPhotos}
-              autoPlayInterval={4000}
-              height="h-96 md:h-[500px]"
-              showDots={true}
-              showArrows={true}
-              title="Complete Gallery"
-              description="Browse through our complete collection"
-            />
-          </div>
+          {teamPhotos.map((photo, idx) => (
+            <motion.div
+              key={idx}
+              variants={itemVariants}
+              className="group relative aspect-[4/3] overflow-hidden rounded-lg border border-gray-200 bg-gray-100"
+            >
+              <img
+                src={photo}
+                alt={`Eagle Hitech team and industrial operations, photo ${idx + 1} of ${teamPhotos.length}`}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+              />
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

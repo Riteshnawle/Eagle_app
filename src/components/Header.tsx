@@ -50,6 +50,7 @@ const Header = () => {
   }, []);
 
   return (
+    <>
     <header
       className={`fixed w-full top-0 z-50 border-b transition-all duration-300 ${
         isSticky
@@ -231,9 +232,9 @@ const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <ApplyModal isOpen={isApplyOpen} onClose={() => setIsApplyOpen(false)} />
     </header>
+    <ApplyModal isOpen={isApplyOpen} onClose={() => setIsApplyOpen(false)} />
+    </>
   );
 };
 
