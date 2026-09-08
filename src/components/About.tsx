@@ -1,21 +1,22 @@
 import { motion } from "framer-motion";
+import { ShieldCheck, BadgeCheck, Flame } from "lucide-react";
 
 const About = () => {
   const values = [
     {
-      icon: "🔒",
+      icon: ShieldCheck,
       title: "Trust",
       description:
         "Building lasting relationships based on integrity and transparency",
     },
     {
-      icon: "✓",
+      icon: BadgeCheck,
       title: "Honesty",
       description:
         "Committed to truthful practices and ethical business standards",
     },
     {
-      icon: "💪",
+      icon: Flame,
       title: "Determination",
       description:
         "Dedicated to excellence and continuous improvement in all endeavors",
@@ -129,7 +130,9 @@ const About = () => {
                 variants={itemVariants}
                 className="card-surface text-center"
               >
-                <div className="text-5xl mb-4">{value.icon}</div>
+                <div className="w-14 h-14 mx-auto mb-4 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <value.icon className="w-7 h-7 text-primary" strokeWidth={2} />
+                </div>
                 <h4 className="text-2xl font-bold text-dark mb-3">
                   {value.title}
                 </h4>

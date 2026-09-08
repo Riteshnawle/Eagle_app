@@ -4,24 +4,24 @@ import ImageCarousel from "./ImageCarousel";
 const ServiceGallery = () => {
   // Work/Project photos by service type
   const skilledWorkPhotos = [
-    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1601058268499-e52658b8bb88?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1200&h=600&fit=crop",
   ];
 
   const industrialWorkPhotos = [
-    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1516937941344-00b4e0337589?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1567789884554-0b844b597180?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1580901368919-7738efb0f87e?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=1200&h=600&fit=crop",
   ];
 
   const projectPhotos = [
-    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1541976590-713941681591?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1516216628859-9bccecab13ca?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200&h=600&fit=crop",
   ];
 
   return (

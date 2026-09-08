@@ -1,33 +1,34 @@
 import { motion } from "framer-motion";
+import { CalendarCheck, Users, Star, ShieldCheck, Zap } from "lucide-react";
 
 const WhyChooseUs = () => {
   const reasons = [
     {
-      icon: "📅",
+      icon: CalendarCheck,
       title: "10+ Years Experience",
       description:
         "Over a decade of proven expertise in industrial Talent Solutions and facility management solutions.",
     },
     {
-      icon: "👥",
+      icon: Users,
       title: "2000+ Professionals Supplied",
       description:
         "Successfully deployed thousands of skilled professionals across various industrial sectors.",
     },
     {
-      icon: "⭐",
+      icon: Star,
       title: "Skilled & Reliable Professionals",
       description:
         "Highly trained and dependable professionals ensuring quality and consistency in operations.",
     },
     {
-      icon: "🛡️",
+      icon: ShieldCheck,
       title: "PF & ESIC Compliant",
       description:
         "Full compliance with Provident Fund and Employee State Insurance Corporation regulations.",
     },
     {
-      icon: "⚡",
+      icon: Zap,
       title: "Fast Deployment",
       description:
         "Rapid mobilization of professionals to meet urgent project requirements and deadlines.",
@@ -91,8 +92,8 @@ const WhyChooseUs = () => {
               }}
               className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 text-center group"
             >
-              <div className="text-6xl mb-6 group-hover:scale-110 transition-transform duration-300">
-                {reason.icon}
+              <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-primary/15 transition-transform duration-300">
+                <reason.icon className="w-8 h-8 text-primary" strokeWidth={2} />
               </div>
               <h3 className="text-xl font-bold text-dark mb-4 group-hover:text-primary transition-colors duration-300">
                 {reason.title}

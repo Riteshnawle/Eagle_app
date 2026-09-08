@@ -1,39 +1,47 @@
 import { motion } from "framer-motion";
+import {
+  HardHat,
+  Building2,
+  Wrench,
+  ShieldCheck,
+  Sparkles,
+  ClipboardList,
+} from "lucide-react";
 
 const Services = () => {
   const services = [
     {
-      icon: "👷",
+      icon: HardHat,
       title: "Industrial Talent Solutions Supply",
       description:
         "Skilled, semi-skilled, and unskilled professionals tailored to your industrial needs across India.",
     },
     {
-      icon: "🏢",
+      icon: Building2,
       title: "Facility Management",
       description:
         "Comprehensive facility management services ensuring smooth operations and maintenance.",
     },
     {
-      icon: "🔧",
+      icon: Wrench,
       title: "Fabrication & Assembly",
       description:
         "Expert fabrication and assembly services with precision and quality assurance.",
     },
     {
-      icon: "🛡️",
+      icon: ShieldCheck,
       title: "Security Services",
       description:
         "Professional security personnel and services for industrial site protection.",
     },
     {
-      icon: "🧹",
+      icon: Sparkles,
       title: "Housekeeping Services",
       description:
         "Efficient housekeeping and cleaning services maintaining hygiene standards.",
     },
     {
-      icon: "📋",
+      icon: ClipboardList,
       title: "Talent Solutions Advisory",
       description:
         "Strategic talent solutions planning and advisory services for organizational optimization.",
@@ -93,7 +101,9 @@ const Services = () => {
               whileHover={{ y: -10, scale: 1.05 }}
               className="card-surface border-t-4 border-primary cursor-pointer"
             >
-              <div className="text-5xl mb-4">{service.icon}</div>
+              <div className="w-14 h-14 mb-4 rounded-xl bg-primary/10 flex items-center justify-center">
+                <service.icon className="w-7 h-7 text-primary" strokeWidth={2} />
+              </div>
               <h3 className="text-xl font-bold text-dark mb-3">
                 {service.title}
               </h3>
