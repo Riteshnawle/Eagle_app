@@ -48,13 +48,26 @@ const ApplyModal = ({ isOpen, onClose }: ApplyModalProps) => {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const closeTimeoutRef = useRef<number | null>(null);
+
+  const clearCloseTimeout = () => {
+    if (closeTimeoutRef.current !== null) {
+      window.clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  };
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
+    if (!isOpen) clearCloseTimeout();
     return () => {
       document.body.style.overflow = "";
     };
   }, [isOpen]);
+
+  useEffect(() => {
+    return () => clearCloseTimeout();
+  }, []);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -173,9 +186,11 @@ const ApplyModal = ({ isOpen, onClose }: ApplyModalProps) => {
       setResumeFile(null);
       if (fileInputRef.current) fileInputRef.current.value = "";
 
-      setTimeout(() => {
+      clearCloseTimeout();
+      closeTimeoutRef.current = window.setTimeout(() => {
         setSubmitted(false);
         onClose();
+        closeTimeoutRef.current = null;
       }, 2200);
     } catch (error) {
       console.error("Failed to submit application:", error);
