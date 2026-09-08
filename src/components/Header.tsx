@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import eagle from "../assets/eagle-icon.png";
+import eagle from "../assets/logo_1.png";
 import ApplyModal from "./ApplyModal";
 
 const Header = () => {
@@ -72,13 +72,16 @@ const Header = () => {
           className="flex items-center group min-w-0"
         >
           <div className="flex items-center gap-2 min-w-0">
-            <div className="w-10 h-10 shrink-0 rounded-full bg-primary flex items-center justify-center p-1.5">
-              <img
-                src={eagle}
-                alt="Company Logo"
-                className="w-full h-full object-contain"
-              />
-            </div>
+            <div
+              className="w-10 h-10 shrink-0 rounded-full bg-primary overflow-hidden"
+              style={{
+                backgroundImage: `url(${eagle})`,
+                backgroundSize: "200%",
+                backgroundPosition: "50% 34%",
+              }}
+              role="img"
+              aria-label="Company Logo"
+            />
             <div className="min-w-0">
               <div className="font-bold text-dark text-sm sm:text-lg truncate">
                 Eagle Hitech

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import logo from "../assets/eagle-icon.png";
+import logo from "../assets/logo_1.png";
 
 const socialLinks = [
   {
@@ -77,13 +77,16 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 shrink-0 rounded-full bg-primary flex items-center justify-center p-1.5">
-                <img
-                  src={logo}
-                  alt="Company Logo"
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              <div
+                className="w-10 h-10 shrink-0 rounded-full bg-primary overflow-hidden"
+                style={{
+                  backgroundImage: `url(${logo})`,
+                  backgroundSize: "200%",
+                  backgroundPosition: "50% 34%",
+                }}
+                role="img"
+                aria-label="Company Logo"
+              />
               <div>
                 <div className="font-bold text-lg">Eagle Hitech</div>
                 <div className="text-xs text-gray-400">
