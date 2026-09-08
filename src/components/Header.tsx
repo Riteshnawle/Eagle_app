@@ -58,7 +58,7 @@ const Header = () => {
       }`}
     >
       <nav
-        className={`section-container flex justify-between items-center transition-all duration-300 ${
+        className={`w-full flex justify-between items-center px-3 sm:px-4 lg:px-6 transition-all duration-300 ${
           isSticky ? "py-3" : "py-5"
         }`}
       >
@@ -190,7 +190,7 @@ const Header = () => {
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="lg:hidden overflow-hidden bg-white border-t border-gray-200"
           >
-            <div className="section-container py-4 flex flex-col gap-1">
+            <div className="px-3 sm:px-4 lg:px-6 py-4 flex flex-col gap-1">
               {navItems.map((item, idx) => {
                 const isActive = activeSection === item.href.slice(1);
                 return (
