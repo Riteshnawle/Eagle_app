@@ -12,6 +12,7 @@ import Compliance from "./components/Compliance";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import BackToTop from "./components/BackToTop";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <Contact />
       <Footer />
       <BackToTop />
+      <WhatsAppButton />
     </div>
   );
 }
